@@ -1,13 +1,42 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+:root {
+  --layer-one: #f7f0f0;
+  --secondary-color: #62b62c;
+  --third-color: #ff995a;
+  --orange: #f15f37;
+  --header-color: #232229;
+  --font-family-style: "Nunito", sans-serif;
+}
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+hr {
+  opacity: 0.1;
+  border-bottom: 1px solid var(--active-input);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: var(--font-family-style);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-style);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  background: #fef2f2;
+}
+
+h1 {
+  color: var(--table-font-color);
 }
