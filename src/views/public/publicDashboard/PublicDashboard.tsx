@@ -18,6 +18,10 @@ export const HeadFixed = styled.section`
   left: 0;
 `;
 
+export const BodyPage = styled.section.attrs({ className: "container" })`
+  margin-top: 100px;
+`;
+
 const PublicDashboard = () => {
   return (
     <>
@@ -25,7 +29,9 @@ const PublicDashboard = () => {
         <HeadFixed>
           <HeaderMain />
         </HeadFixed>
-        <PublicRoutes />
+        <BodyPage>
+          <PublicRoutes />
+        </BodyPage>
       </PublicDashboardContainer>
     </>
   );

@@ -10,7 +10,7 @@ import logo from "./../../assets/logo_white.png";
 import { useLocation } from "react-router-dom";
 import { PublicRoutesEnum } from "../../routes/PublicRoutesEnum";
 import FaceIcon from "@mui/icons-material/Face";
-
+import { NavLink } from "react-router-dom";
 import man from "./../../assets/hombre.png";
 const HeaderMain = () => {
   const navigate = useLocation();
@@ -18,6 +18,11 @@ const HeaderMain = () => {
   const handleValidateCurrentView = (view: string) => {
     return navigate.pathname === view;
   };
+
+  const handleActionRedirect = (view: string) => {
+    return navigate.pathname === view;
+  };
+
   return (
     <>
       <HeaderContainer>
@@ -30,12 +35,12 @@ const HeaderMain = () => {
               <HeaderLi
                 currentView={handleValidateCurrentView(PublicRoutesEnum.PUBLIC)}
               >
-                Home
+                <NavLink to={PublicRoutesEnum.PUBLIC}>Home</NavLink>
               </HeaderLi>
               <HeaderLi
                 currentView={handleValidateCurrentView(PublicRoutesEnum.MENU)}
               >
-                Menu
+                <NavLink to={PublicRoutesEnum.MENU}>Menu</NavLink>
               </HeaderLi>
               <HeaderLi
                 currentView={handleValidateCurrentView(PublicRoutesEnum.OFFERS)}
