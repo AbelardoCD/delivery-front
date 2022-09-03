@@ -20,6 +20,7 @@ export const HeadFixed = styled.section`
 
 export const BodyPage = styled.section.attrs({ className: "container" })`
   margin-top: 100px;
+  margin-bottom: 50px;
 `;
 
 const PublicDashboard = () => {
