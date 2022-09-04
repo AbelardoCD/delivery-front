@@ -7,19 +7,14 @@ import {
   SectionUser,
 } from "./HeaderMainStyles";
 import logo from "./../../assets/logo_white.png";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { PublicRoutesEnum } from "../../routes/PublicRoutesEnum";
-import FaceIcon from "@mui/icons-material/Face";
-import { NavLink } from "react-router-dom";
+
 import man from "./../../assets/hombre.png";
 const HeaderMain = () => {
   const navigate = useLocation();
 
   const handleValidateCurrentView = (view: string) => {
-    return navigate.pathname === view;
-  };
-
-  const handleActionRedirect = (view: string) => {
     return navigate.pathname === view;
   };
 
@@ -33,37 +28,22 @@ const HeaderMain = () => {
           <SectionMenu>
             <ul>
               <HeaderLi
-                currentView={handleValidateCurrentView(PublicRoutesEnum.PUBLIC)}
+                currentView={handleValidateCurrentView(PublicRoutesEnum.HOME)}
               >
-                <NavLink to={PublicRoutesEnum.PUBLIC}>Home</NavLink>
+                <Link to={PublicRoutesEnum.HOME}>Home</Link>
               </HeaderLi>
               <HeaderLi
                 currentView={handleValidateCurrentView(PublicRoutesEnum.MENU)}
               >
-                <NavLink to={PublicRoutesEnum.MENU}>Menu</NavLink>
-              </HeaderLi>
-              <HeaderLi
-                currentView={handleValidateCurrentView(PublicRoutesEnum.OFFERS)}
-              >
-                Offers
-              </HeaderLi>
-              <HeaderLi
-                currentView={handleValidateCurrentView(PublicRoutesEnum.FOODS)}
-              >
-                Foods
-              </HeaderLi>
-              <HeaderLi
-                currentView={handleValidateCurrentView(
-                  PublicRoutesEnum.SERVICES
-                )}
-              >
-                Services
+                <Link to={PublicRoutesEnum.MENU}>Menu</Link>
               </HeaderLi>
             </ul>
           </SectionMenu>
           <SectionUser>
-            <img src={man} />
-            Farzan
+            <Link to={PublicRoutesEnum.LOGIN}>
+              <img src={man} />
+              Login
+            </Link>
           </SectionUser>
         </HeaderNav>
       </HeaderContainer>

@@ -1,7 +1,12 @@
 import HeaderMain from "../../../components/headerMain/HeaderMain";
 import PublicRoutes from "../../../routes/PublicRoutes";
 import styled from "styled-components";
+import { Route, Switch } from "react-router-dom";
 
+import { PublicRoutesEnum } from "../../../routes/PublicRoutesEnum";
+import LandingPage from "../landingPage/LandingPage";
+import Login from "../login/Login";
+import Menu from "../menu/Menu";
 export const PublicDashboardContainer = styled.section.attrs({
   className: "animated fadeIn fast",
 })`
@@ -26,14 +31,13 @@ export const BodyPage = styled.section.attrs({ className: "container" })`
 const PublicDashboard = () => {
   return (
     <>
-      <PublicDashboardContainer>
-        <HeadFixed>
-          <HeaderMain />
-        </HeadFixed>
-        <BodyPage>
-          <PublicRoutes />
-        </BodyPage>
-      </PublicDashboardContainer>
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path={PublicRoutesEnum.HOME} component={LandingPage} />
+        <Route exact path={PublicRoutesEnum.MENU} component={Menu} />
+
+        <Route exact path={PublicRoutesEnum.LOGIN} component={Login} />
+      </Switch>
     </>
   );
 };

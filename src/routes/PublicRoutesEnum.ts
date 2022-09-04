@@ -1,9 +1,6 @@
 export enum PublicRoutesEnum {
-  PUBLIC = "/",
+  HOME = "/home",
   MENU = "/menu",
 
-  OFFERS = "/offers",
-  FOODS = "/foods",
-  SERVICES = "/services",
-  RESTAURANTS = "/restaurants",
+  LOGIN = "/login",
 }

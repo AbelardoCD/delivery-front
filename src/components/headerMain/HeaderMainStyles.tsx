@@ -42,15 +42,6 @@ export const HeaderLi = styled.li<{ currentView: boolean }>`
     transition: all 0.3s ease-in;
     background: ${(props) => (props.currentView ? "#F45A32" : "transparent")};
   }
-
-  /* :hover {
-    cursor: pointer;
-    background-color: red;
-    color: #fff;
-    border-radius: 5px;
-    transition: all 0.3s ease-in;
-    padding: 5px;
-  }*/
 `;
 
 export const SectionUser = styled.section`
@@ -62,5 +53,11 @@ export const SectionUser = styled.section`
   img {
     width: 30px;
     margin-right: 10px;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: end;
   }
 `;

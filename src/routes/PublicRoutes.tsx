@@ -1,16 +1,22 @@
 import { PublicRoutesEnum } from "./PublicRoutesEnum";
-import { Route, Routes } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import LandingPage from "../views/public/landingPage/LandingPage";
 import Menu from "../views/public/menu/Menu";
+import Login from "../views/public/login/Login";
 
 const PublicRoutes = () => {
+  console.log("here");
+
   return (
     <>
-      <Routes>
-        <Route path={PublicRoutesEnum.PUBLIC} element={<LandingPage />} />
+      <Switch>
+        <Route exact path={"/"} component={LandingPage} />
 
-        <Route path={PublicRoutesEnum.MENU} element={<Menu />} />
-      </Routes>
+        <Route exact path={PublicRoutesEnum.HOME} component={LandingPage} />
+        <Route exact path={PublicRoutesEnum.MENU} component={Menu} />
+
+        <Route exact path={PublicRoutesEnum.LOGIN} component={Login} />
+      </Switch>
     </>
   );
 };
