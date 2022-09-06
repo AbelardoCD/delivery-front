@@ -41,3 +41,9 @@ body {
 h1 {
   color: var(--table-font-color);
 }
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

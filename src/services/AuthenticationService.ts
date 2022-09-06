@@ -55,7 +55,7 @@ export class AuthenticationService {
 
         switch (user.role) {
           case String(UserRoles.ADMIN):
-            push("admin/");
+            push(AdminRoutesEnum.ADMIN);
             break;
         }
       } catch (e) {

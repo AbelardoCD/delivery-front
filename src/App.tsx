@@ -2,21 +2,18 @@ import "./App.css";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { PublicRoutesEnum } from "./routes/PublicRoutesEnum";
-import Login from "./views/public/login/Login";
-
-import LandingPage from "./views/public/landingPage/LandingPage";
-import Menu from "./views/public/menu/Menu";
-import PublicDashboard from "./views/public/publicDashboard/PublicDashboard";
-import AdminDashboard from "./views/admin/adminDashboard/AdminDashboard";
 import RoutesDashboard from "./routes/RotesDashboard";
+import { Provider } from "react-redux";
+import { reduxStore } from "./redux/reduxStore";
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route component={() => <RoutesDashboard />} />
-      </Switch>
-    </BrowserRouter>
+    <Provider store={reduxStore}>
+      <BrowserRouter>
+        <Switch>
+          <Route component={() => <RoutesDashboard />} />
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

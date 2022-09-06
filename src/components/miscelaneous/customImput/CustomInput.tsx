@@ -22,12 +22,12 @@ const grey = {
   900: "#24292f",
 };
 const colors = {
-  50: "#f15f37",
+  50: "#f15f370",
   100: "#4d966d",
 };
 const StyledInputElement = styled("input")(
   ({ theme }) => `
-    width: 320px;
+    width: 100%;
     font-family: IBM Plex Sans, sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
@@ -37,9 +37,9 @@ const StyledInputElement = styled("input")(
     color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
     background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
     border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
-    box-shadow: 0px 4px 30px ${
-      theme.palette.mode === "dark" ? grey[900] : colors[50]
-    };
+    /*box-shadow: 0px 4px 30px ${
+      theme.palette.mode === "dark" ? grey[900] : grey[200]
+    };*/
   
     &:hover {
       border-color: ${colors[100]};

@@ -24,6 +24,8 @@ const AuthRoute = ({
     );
   }, [history, requiredRoles]);
 
+  console.log(isLoaded);
+
   return (
     <React.Fragment>
       {isLoaded ? (

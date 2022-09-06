@@ -14,9 +14,6 @@ import { useHistory, useLocation } from "react-router-dom";
 
 const Login = () => {
   const history = useHistory();
-  const loc = useLocation();
-
-  console.log(loc);
 
   const [login, setLogin] = useState<LoginInterface>({
     email: "",
