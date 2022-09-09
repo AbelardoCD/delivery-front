@@ -5,6 +5,9 @@ export const SectionTwoContainer = styled.section`
 
   display: flex;
   justify-content: center;
+  @media (max-width: 768px) {
+    margin-top: 200px;
+  }
 `;
 export const SectionRectangle = styled.section`
   width: 90%;
@@ -27,6 +30,20 @@ export const SectionRectangle = styled.section`
     right: calc(90% - 90.5%);
     width: 20%;
   }
+
+  @media (max-width: 768px) {
+    width: 80%;
+    height: 500px;
+    flex-direction: column;
+    .delivery-man {
+      position: absolute;
+      left: -150px;
+      top: 150px;
+    }
+    .pizza {
+      display: none;
+    }
+  }
 `;
 
 export const SectionDownloadApp = styled.section`
@@ -37,6 +54,12 @@ export const SectionDownloadApp = styled.section`
     color: #ffffff;
     transform: rotate(2deg);
     font-size: 56px;
+  }
+
+  @media (max-width: 1200px) {
+    label {
+      font-size: 45px;
+    }
   }
 `;
 export const SectionRectangleTwo = styled.section`
@@ -53,6 +76,12 @@ export const SectionRectangleTwo = styled.section`
   .pizza {
     background: #08040421;
     border-radius: 50%;
+  }
+
+  @media (max-width: 768px) {
+    .pizza {
+      display: none;
+    }
   }
 `;
 
@@ -76,5 +105,9 @@ export const SectionIconsApps = styled.section<{ rigth: string }>`
 
   label {
     margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
