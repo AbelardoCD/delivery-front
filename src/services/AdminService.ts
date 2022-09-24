@@ -6,8 +6,8 @@ class AdminService {
   public getMenu(setMenuList: (e: MenuInterface[]) => void) {
     AdminRequests.getFood()
       .then((resp) => {
-        console.log(resp.data.foodAll);
-        const data = resp.data.foodAll as MenuInterface[];
+        console.log(resp.data.response);
+        const data = resp.data.response as MenuInterface[];
         setMenuList(data);
       })
       .catch((err) => {

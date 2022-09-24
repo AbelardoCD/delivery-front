@@ -74,6 +74,7 @@ export const SectionImage = styled.section`
     padding: 0;
     img {
       width: 300px;
+      display: block;
     }
   }
 

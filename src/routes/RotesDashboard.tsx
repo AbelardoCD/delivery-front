@@ -3,6 +3,7 @@ import AdminDashboard from "../views/admin/adminDashboard/AdminDashboard";
 import PublicDashboard from "../views/public/publicDashboard/PublicDashboard";
 import styled from "styled-components";
 import HeaderMain from "../components/headerMain/HeaderMain";
+import { useAppReducer } from "../redux/appReducer/useAppReducer";
 
 export const PublicDashboardContainer = styled.section.attrs({
   className: "animated fadeIn fast",
@@ -13,18 +14,14 @@ export const PublicDashboardContainer = styled.section.attrs({
   position: relative;
 `;
 
-export const HeadFixed = styled.section`
-  position: fixed;
-  z-index: 10;
-  width: 100%;
-  left: 0;
-`;
+export const HeadFixed = styled.section``;
 
 export const BodyPage = styled.section.attrs({ className: "container" })`
   margin-top: 100px;
   margin-bottom: 50px;
 `;
 const RoutesDashboard = () => {
+  const { zIndex } = useAppReducer();
   return (
     <>
       <PublicDashboardContainer>

@@ -9,7 +9,7 @@ const Menu = () => {
   return (
     <MenuContainer>
       {menuList.map((food) => (
-        <CardFood key={food.food.id} food={food} />
+        <CardFood key={food.id} food={food} />
       ))}
     </MenuContainer>
   );

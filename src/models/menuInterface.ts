@@ -1,16 +1,14 @@
 export interface MenuInterface {
-  food: Food;
-  imageBase64: Base64;
-}
-
-export interface Food {
   id: number;
   name: string;
   description: string;
-  urlImagen: string;
+  urlImage: string;
   idRestaurant: number;
   price: number;
+  imageBase64: string;
 }
+
+export interface Food {}
 
 export interface Base64 {
   base: string;

@@ -1,61 +1,83 @@
-import {
-  HeaderContainer,
-  HeaderLi,
-  HeaderNav,
-  SectionLogo,
-  SectionMenu,
-  SectionUser,
-} from "./HeaderMainStyles";
+import { useEffect, useState } from "react";
 import logo from "./../../assets/logo_white.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { PublicRoutesEnum } from "../../routes/PublicRoutesEnum";
 import MenuIcon from "@mui/icons-material/Menu";
-import man from "./../../assets/hombre.png";
 import CloseIcon from "@mui/icons-material/Close";
+import { useAppReducer } from "../../redux/appReducer/useAppReducer";
+import { NavContainer, BgDiv, HeaderLi } from "./HeaderMainStyles";
+import BurguerButton from "./burgerButton/BurgerButton";
 const HeaderMain = () => {
+  const history = useHistory();
   const navigate = useLocation();
 
   const handleValidateCurrentView = (view: string) => {
     return navigate.pathname === view;
   };
 
+  const { setZindex, zIndex } = useAppReducer();
+
+  const [clicked, setClicked] = useState(false);
+  const handleClick = (route?: string) => {
+    setClicked(!clicked);
+
+    if (route) {
+      history.push(route);
+    }
+  };
+
+  const [sizeWindow, setSizeWindow] = useState<number>(window.innerWidth);
+
+  const handleResize = () => {
+    setSizeWindow(window.innerWidth);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const validate = () => {
+    if (!clicked || sizeWindow >= 768) {
+      return false;
+    }
+
+    return true;
+  };
+
   return (
     <>
-      <HeaderContainer>
-        <HeaderNav id="nav">
-          <SectionLogo>
-            <img src={logo} />
-          </SectionLogo>
-          <ul>
-            <HeaderLi
-              currentView={handleValidateCurrentView(PublicRoutesEnum.HOME)}
-            >
-              <Link to={PublicRoutesEnum.HOME}>Home</Link>
-            </HeaderLi>
-            <HeaderLi
-              currentView={handleValidateCurrentView(PublicRoutesEnum.MENU)}
-            >
-              <Link to={PublicRoutesEnum.MENU}>Menu</Link>
-            </HeaderLi>
+      <NavContainer>
+        <img src={logo} />
+        <div className={`links ${validate() ? "active" : ""}`}>
+          <HeaderLi
+            currentView={handleValidateCurrentView(PublicRoutesEnum.HOME)}
+            onClick={() => handleClick(PublicRoutesEnum.HOME)}
+          >
+            Home
+          </HeaderLi>
 
-            <HeaderLi
-              currentView={handleValidateCurrentView(PublicRoutesEnum.LOGIN)}
-            >
-              <Link to={PublicRoutesEnum.LOGIN}>
-                {/* { <img src={man} />} */}
-                Login
-              </Link>
-            </HeaderLi>
-          </ul>
+          <HeaderLi
+            onClick={() => handleClick(PublicRoutesEnum.MENU)}
+            currentView={handleValidateCurrentView(PublicRoutesEnum.MENU)}
+          >
+            Menu
+          </HeaderLi>
 
-          <a href="#nav" className="hamburger">
-            <MenuIcon />
-          </a>
-          <a href="#" className="close">
-            <CloseIcon />
-          </a>
-        </HeaderNav>
-      </HeaderContainer>
+          <HeaderLi
+            onClick={() => handleClick(PublicRoutesEnum.LOGIN)}
+            currentView={handleValidateCurrentView(PublicRoutesEnum.LOGIN)}
+          >
+            Login
+          </HeaderLi>
+        </div>
+        <div className="burguer">
+          <BurguerButton clicked={validate()} handleClick={handleClick} />
+        </div>
+        <BgDiv className={`initial ${validate() ? " active" : ""}`}></BgDiv>
+      </NavContainer>
     </>
   );
 };

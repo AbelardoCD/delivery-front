@@ -63,10 +63,10 @@ const FoundRestaurants = () => {
             Cuando tienes flojera para cosinar, nosotros estamos para servirte
           </label>
         </Phrase>
-        <FormLanding>
+        {/* <FormLanding>
           <SearchIcon />
           <input autoFocus placeholder="Find Restaurants" />
-        </FormLanding>
+        </FormLanding> */}
       </FoundRestaurantsContainer>
     </>
   );

@@ -5,7 +5,7 @@ class AdminRequest {
   }
 
   async getFood() {
-    return axios.get(`${process.env.REACT_APP_API_ENDPOINT}admin/food`);
+    return axios.get(`${process.env.REACT_APP_API_ENDPOINT}admin/list/food`);
   }
   async getRestaurants() {
     return axios.get(`${process.env.REACT_APP_API_ENDPOINT}admin/restaurants`);
