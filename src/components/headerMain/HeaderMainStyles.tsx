@@ -3,7 +3,7 @@ export const NavContainer = styled.nav`
   position: fixed;
   width: 100%;
   z-index: 10;
-
+  background-color: #fef2f2;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -84,7 +84,7 @@ export const BgDiv = styled.div`
 `;
 export const Separator = styled.div.attrs({ className: "container" })`
   padding: 15px 0;
-  // background-color: #232229;
+
   border-radius: 0 0 5px 5px;
   display: flex;
   align-items: center;

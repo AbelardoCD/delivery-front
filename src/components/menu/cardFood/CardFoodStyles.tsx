@@ -19,8 +19,8 @@ export const SectionImage = styled.section<{
     height: 190px;
     border-radius: 50%;
     border-top: 10px solid #f15f37;
-    border-left: 10px solid #f8cbcb5c;
-    border-right: 10px solid #f8cbcb5c;
+    border-left: 10px solid #fdeaea;
+    border-right: 10px solid #fdeaea;
     border-bottom: 10px solid transparent;
 
     margin-top: 5px;
@@ -82,7 +82,7 @@ export const SectionInformation = styled.section`
     overflow: hidden;
     text-overflow: ellipsis;
 
-    color: #999898;
+    color: #838282;
     font-size: 12px;
   }
 `;
