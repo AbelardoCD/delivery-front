@@ -1,29 +1,36 @@
 import styled from "styled-components";
 
 export const CardFoodContiner = styled.section`
-  width: 250px;
-  max-height: 350px;
-  background: #fff9f9;
+  width: 200px;
+  max-height: 380px;
+  background: linear-gradient(to top, #fcd7d7a0, transparent);
   border-radius: 5px;
-  box-shadow: 4px 4px 32px #c0c0c0;
-  overflow: hidden;
+  position: relative;
 `;
 
 export const SectionImage = styled.section<{
   imageBase64: string;
 }>`
-  width: 100%;
-  height: 170px;
-  background: url(${(props) => `data:image/png;base64,${props.imageBase64}`})
-    center center no-repeat;
-  background-size: cover;
-  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 195px;
+    height: 190px;
+    border-radius: 50%;
+    border-top: 10px solid #f15f37;
+    border-left: 10px solid #f8cbcb5c;
+    border-right: 10px solid #f8cbcb5c;
+    border-bottom: 10px solid transparent;
+
+    margin-top: 5px;
+    position: relative;
+  }
 `;
 
 export const SectionInformation = styled.section`
   padding: 10px 10px 20px 10px;
   height: 40%;
-
   .restaurant-name label {
     color: #479468;
     font-weight: bold;
@@ -47,19 +54,22 @@ export const SectionInformation = styled.section`
   .body-card {
     margin-top: 10px;
   }
-  .body-card button {
-    background: #f15f373b;
-    color: #f15f37;
-    padding: 5px 10px;
+  .body-card input {
+    background: #f54d4d;
+    color: #fff;
+    padding: 10px 20px;
     border-radius: 20px;
     font-size: 12px;
-    margin-top: 10px;
+    margin-top: 15px;
     border: none;
     cursor: pointer;
+    position: absolute;
+    bottom: -20px;
+    left: 51px;
   }
 
   .body-card p {
-    font-weight: 100 !important;
+    font-weight: 200 !important;
     display: block;
     display: -webkit-box;
     max-width: 100%;
@@ -93,3 +103,7 @@ export const TitleCard = styled.label`
   justify-content: center;
   border-radius: 5px 5px 0 0;
 `;
+
+const returnImage = (img: string) => {
+  return `data:image/png;base64,${img}`;
+};

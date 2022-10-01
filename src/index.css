@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200&family=Roboto+Slab:wght@100&display=swap");
 :root {
   --layer-one: #f7f0f0;
   --secondary-color: #62b62c;
@@ -6,7 +6,7 @@
   --orange: #f15f37;
   --header-color: #232229;
   --green: #4d966d;
-  --font-family-style: "Nunito", sans-serif;
+  --font-family-style: "Poppins", sans-serif;
 }
 
 * {

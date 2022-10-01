@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import logo from "./../../assets/logo_white.png";
+import logo from "./../../assets/Logo.svg";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { PublicRoutesEnum } from "../../routes/PublicRoutesEnum";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useAppReducer } from "../../redux/appReducer/useAppReducer";
-import { NavContainer, BgDiv, HeaderLi } from "./HeaderMainStyles";
+import { NavContainer, BgDiv, HeaderLi, Separator } from "./HeaderMainStyles";
 import BurguerButton from "./burgerButton/BurgerButton";
 const HeaderMain = () => {
   const history = useHistory();
@@ -50,33 +50,35 @@ const HeaderMain = () => {
   return (
     <>
       <NavContainer>
-        <img src={logo} />
-        <div className={`links ${validate() ? "active" : ""}`}>
-          <HeaderLi
-            currentView={handleValidateCurrentView(PublicRoutesEnum.HOME)}
-            onClick={() => handleClick(PublicRoutesEnum.HOME)}
-          >
-            Home
-          </HeaderLi>
+        <Separator>
+          <img src={logo} />
+          <div className={`links ${validate() ? "active" : ""}`}>
+            <HeaderLi
+              currentView={handleValidateCurrentView(PublicRoutesEnum.HOME)}
+              onClick={() => handleClick(PublicRoutesEnum.HOME)}
+            >
+              Home
+            </HeaderLi>
 
-          <HeaderLi
-            onClick={() => handleClick(PublicRoutesEnum.MENU)}
-            currentView={handleValidateCurrentView(PublicRoutesEnum.MENU)}
-          >
-            Menu
-          </HeaderLi>
+            <HeaderLi
+              onClick={() => handleClick(PublicRoutesEnum.MENU)}
+              currentView={handleValidateCurrentView(PublicRoutesEnum.MENU)}
+            >
+              Menu
+            </HeaderLi>
 
-          <HeaderLi
-            onClick={() => handleClick(PublicRoutesEnum.LOGIN)}
-            currentView={handleValidateCurrentView(PublicRoutesEnum.LOGIN)}
-          >
-            Login
-          </HeaderLi>
-        </div>
-        <div className="burguer">
-          <BurguerButton clicked={validate()} handleClick={handleClick} />
-        </div>
-        <BgDiv className={`initial ${validate() ? " active" : ""}`}></BgDiv>
+            <HeaderLi
+              onClick={() => handleClick(PublicRoutesEnum.LOGIN)}
+              currentView={handleValidateCurrentView(PublicRoutesEnum.LOGIN)}
+            >
+              Login
+            </HeaderLi>
+          </div>
+          <div className="burguer">
+            <BurguerButton clicked={validate()} handleClick={handleClick} />
+          </div>
+          <BgDiv className={`initial ${validate() ? " active" : ""}`}></BgDiv>
+        </Separator>
       </NavContainer>
     </>
   );

@@ -16,12 +16,8 @@ export const PublicDashboardContainer = styled.section.attrs({
 
 export const HeadFixed = styled.section``;
 
-export const BodyPage = styled.section.attrs({ className: "container" })`
-  margin-top: 100px;
-  margin-bottom: 50px;
-`;
+export const BodyPage = styled.section.attrs({ className: "" })``;
 const RoutesDashboard = () => {
-  const { zIndex } = useAppReducer();
   return (
     <>
       <PublicDashboardContainer>

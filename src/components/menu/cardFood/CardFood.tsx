@@ -10,7 +10,9 @@ const CardFood = ({ food }: { food: MenuInterface }) => {
   return (
     <>
       <CardFoodContiner>
-        <SectionImage imageBase64={food.imageBase64} />
+        <SectionImage imageBase64={food.imageBase64}>
+          <img src={`data:image/png;base64,${food.imageBase64}`} />
+        </SectionImage>
         <SectionInformation>
           <div className="restaurant-name">
             <label>La cocina</label>
@@ -32,7 +34,7 @@ const CardFood = ({ food }: { food: MenuInterface }) => {
               publishing software like Aldus PageMaker including versions of
               Lorem Ipsum
             </p>
-            <button>Order Now</button>
+            <input type="button" value="Order Now" />
           </div>
         </SectionInformation>
       </CardFoodContiner>

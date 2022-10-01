@@ -6,4 +6,5 @@ export const MenuContainer = styled.section`
   gap: 20px;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 `;

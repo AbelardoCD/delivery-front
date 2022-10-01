@@ -4,12 +4,10 @@ export const NavContainer = styled.nav`
   width: 100%;
   z-index: 10;
 
-  padding: 15px;
-  border-radius: 0 0 5px 5px;
-  background-color: #232229;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   a {
     color: white;
     text-decoration: none;
@@ -35,8 +33,10 @@ export const NavContainer = styled.nav`
       margin: 0;
       a {
         font-size: 1rem;
-        color: white;
+        color: #000000;
         display: inline;
+        letter-spacing: 1px;
+        margin-left: 70px;
       }
       display: block;
     }
@@ -81,6 +81,15 @@ export const BgDiv = styled.div`
     width: 100%;
     min-height: 100vh;
   }
+`;
+export const Separator = styled.div.attrs({ className: "container" })`
+  padding: 15px 0;
+  // background-color: #232229;
+  border-radius: 0 0 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
 `;
 
 export const HeaderLi = styled.a<{ currentView: boolean }>`
