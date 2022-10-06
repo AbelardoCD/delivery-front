@@ -5,7 +5,7 @@ import { AppReducerTypes } from "./AppReducerTypes";
 export const useAppReducer = () => {
   const dispatch = useDispatch();
   const redux = useSelector(({ app }: ReduxPackages) => app);
-  const { openModal, zIndex } = redux;
+  const { openModal, showBackdrop } = redux;
 
   const setOpenModal = (payload: boolean) => {
     dispatch({
@@ -14,11 +14,11 @@ export const useAppReducer = () => {
     });
   };
 
-  const setZindex = (payload: string) => {
+  const setShowBackdrop = (payload: boolean) => {
     dispatch({
-      type: AppReducerTypes.SET_ZINDEX,
+      type: AppReducerTypes.SET_SHOW_BACKDROP,
       payload,
     });
   };
-  return { setOpenModal, openModal, setZindex, zIndex };
+  return { setOpenModal, openModal, setShowBackdrop, showBackdrop };
 };

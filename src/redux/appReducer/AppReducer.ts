@@ -4,7 +4,7 @@ import { AppReducerTypes } from "./AppReducerTypes";
 
 const initialState: AppReducerStates = {
   openModal: false,
-  zIndex: "10",
+  showBackdrop: false,
 };
 
 export const AppReducer = (
@@ -17,10 +17,10 @@ export const AppReducer = (
         ...states,
         openModal: action.payload,
       };
-    case AppReducerTypes.SET_ZINDEX:
+    case AppReducerTypes.SET_SHOW_BACKDROP:
       return {
         ...states,
-        zIndex: action.payload,
+        showBackdrop: action.payload,
       };
     default:
       return states;

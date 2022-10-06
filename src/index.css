@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200&family=Roboto+Slab:wght@100&display=swap");
 :root {
-  --layer-one: #f7f0f0;
+  --layer-one: #fef2f2;
   --secondary-color: #62b62c;
   --third-color: #ff995a;
   --orange: #f15f37;
@@ -35,7 +35,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
-  background: #fef2f2;
+  background: var(--layer-one);
 }
 
 h1 {

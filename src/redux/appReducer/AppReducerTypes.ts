@@ -1,4 +1,4 @@
 export enum AppReducerTypes {
   SET_OPEN_MODAL = "SET_OPEN_MODAL",
-  SET_ZINDEX = "SET_ZINDEX",
+  SET_SHOW_BACKDROP = "SET_SHOW_BACKDROP",
 }

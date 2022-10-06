@@ -15,8 +15,6 @@ const HeaderMain = () => {
     return navigate.pathname === view;
   };
 
-  const { setZindex, zIndex } = useAppReducer();
-
   const [clicked, setClicked] = useState(false);
   const handleClick = (route?: string) => {
     setClicked(!clicked);
@@ -47,6 +45,8 @@ const HeaderMain = () => {
     return true;
   };
 
+  const { setShowBackdrop } = useAppReducer();
+
   return (
     <>
       <NavContainer>
@@ -68,7 +68,7 @@ const HeaderMain = () => {
             </HeaderLi>
 
             <HeaderLi
-              onClick={() => handleClick(PublicRoutesEnum.LOGIN)}
+              onClick={() => setShowBackdrop(true)}
               currentView={handleValidateCurrentView(PublicRoutesEnum.LOGIN)}
             >
               Login

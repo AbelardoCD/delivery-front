@@ -1,5 +1,3 @@
-import HeaderMain from "../../../components/headerMain/HeaderMain";
-import PublicRoutes from "../../../routes/PublicRoutes";
 import styled from "styled-components";
 import { Route, Switch } from "react-router-dom";
 
@@ -7,6 +5,7 @@ import { PublicRoutesEnum } from "../../../routes/PublicRoutesEnum";
 import LandingPage from "../landingPage/LandingPage";
 import Login from "../login/Login";
 import Menu from "../menu/Menu";
+import Backdrop from "../../../components/miscelaneous/backdrop/Backdrop";
 export const PublicDashboardContainer = styled.section.attrs({
   className: "animated fadeIn fast",
 })`
@@ -38,6 +37,7 @@ const PublicDashboard = () => {
 
         <Route exact path={PublicRoutesEnum.LOGIN} component={Login} />
       </Switch>
+      <Backdrop />
     </>
   );
 };
