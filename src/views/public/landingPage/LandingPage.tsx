@@ -29,7 +29,7 @@ const LandingPage = () => {
           <input type="button" value="Leer Mas" />
         </TextSection>
         <ImageSection>
-          <div className="animated fadeInLeft faster">{View}</div>
+          <div className="animated fadeInLeft fast">{View}</div>
         </ImageSection>
       </LandingPageContainer>
     </>

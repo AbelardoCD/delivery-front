@@ -1,13 +1,20 @@
 export interface JWTModel {
   iat: number;
   exp: number;
-  user: UserJWT;
+
+  sub: string;
+  authorities: { authority: UserRoles };
+  firstLogin: boolean;
+  created_by_id: number | null;
+  id: number;
+  masterDownload: boolean;
+  days_left_password_expires: number;
 }
 
 export enum UserRoles {
-  ADMIN = "ADMIN",
-  USER = "USER",
-  ADMINISTRATOR = "ADMINISTRATOR",
+  ADMIN = "ROLE_ADMIN",
+  USER = "ROLE_USER",
+  ADMINISTRATOR = "ROLE_ADMINISTRATOR",
 }
 
 export interface User {

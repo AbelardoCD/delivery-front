@@ -10,7 +10,6 @@ import { useAppReducer } from "../../../redux/appReducer/useAppReducer";
 const AdminRestaurants = () => {
   const { openModal, setOpenModal } = useAppReducer();
   const [restaurantsList, setRestaurantsList] = useState<Restaurant[]>([]);
-  console.log(openModal);
 
   useEffect(() => {
     AdminService.getRestaurants(setRestaurantsList);

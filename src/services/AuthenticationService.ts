@@ -47,13 +47,15 @@ export class AuthenticationService {
     setShowModule?: (e: boolean) => void
   ): void {
     const token = this.getJWT();
+    console.log("token", token);
 
     if (token !== null) {
       try {
         const userInfo = this.destructuringJWT() as JWTModel;
-        const { user } = userInfo;
+        console.log("userInfo", userInfo.authorities.authority);
+        const { authorities } = userInfo;
 
-        switch (user.role) {
+        switch (authorities.authority) {
           case String(UserRoles.ADMIN):
             push(AdminRoutesEnum.ADMIN);
             break;
@@ -79,14 +81,20 @@ export class AuthenticationService {
       try {
         const base64Url = token.split(".")[1];
         const userInfo = JSON.parse(window.atob(base64Url)) as JWTModel;
-        if (roles.length > 0 && roles.includes(userInfo.user.role)) {
+        if (
+          roles.length > 0 &&
+          roles.includes(userInfo.authorities.authority)
+        ) {
           return true;
-        } else if (roles.length < 1 || userInfo.user.role.length < 1) {
+        } else if (
+          roles.length < 1 ||
+          userInfo.authorities.authority.length < 1
+        ) {
           push(PublicRoutesEnum.LOGIN);
           return false;
         } else if (
-          userInfo.user.role.length > 0 &&
-          !roles.includes(userInfo.user.role)
+          userInfo.authorities.authority.length > 0 &&
+          !roles.includes(userInfo.authorities.authority)
         ) {
           push(PublicRoutesEnum.LOGIN);
           return false;

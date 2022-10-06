@@ -5,7 +5,8 @@ export const LoginContainer = styled.section.attrs({
 })`
   display: flex;
   justify-content: center;
-  height: 500px;
+  margin-top: 59px;
+  min-height: calc(100vh - 59px);
 `;
 
 export const InformationSection = styled.section.attrs({
@@ -16,7 +17,7 @@ export const InformationSection = styled.section.attrs({
   position: relative;
   overflow: hidden;
   width: 500px;
-
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;

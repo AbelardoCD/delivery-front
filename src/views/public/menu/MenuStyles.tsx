@@ -1,11 +1,8 @@
 import styled from "styled-components";
 
-export const MenuContainer = styled.div.attrs({ className: "container" })`
-  /*display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  justify-content: center;
-  align-items: center;*/
+export const MenuContainer = styled.div.attrs({
+  className: "container animated fadeIn faster",
+})`
   margin-top: 100px;
   margin-bottom: 50px;
   display: grid;

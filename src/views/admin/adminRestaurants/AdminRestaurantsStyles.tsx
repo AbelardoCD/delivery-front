@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const AdminRestaurantsContainer = styled.section``;
+export const AdminRestaurantsContainer = styled.section.attrs({
+  className: "container",
+})`
+  margin-top: 59px;
+  min-height: calc(100vh - 59px);
+`;
 
 export const FormularioContainer = styled.form`
   background: #fef2f2;

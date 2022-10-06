@@ -28,8 +28,8 @@ const Login = () => {
   return (
     <LoginContainer>
       <InformationSection>
-        <ImgAbsolute src={pizza} left={"-130px"} top={"-20px"} />
-        <ImgAbsolute src={burger} left={"380px"} top={"350px"} />
+        {/* <ImgAbsolute src={pizza} left={"-130px"} top={"-20px"} />
+        <ImgAbsolute src={burger} left={"380px"} top={"350px"} /> */}
         <form onSubmit={(e) => handleLogin(e)}>
           <label>Bienvenido De Nuevo!</label>
           <CustomInput
