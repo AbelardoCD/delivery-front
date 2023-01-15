@@ -44,7 +44,7 @@ export class AuthenticationService {
 
   public static verifyUserRole(
     push: (state: string) => void,
-    setShowModule?: (e: boolean) => void
+    setShowBackdrop: (e: boolean) => void
   ): void {
     const token = this.getJWT();
     console.log("token", token);
@@ -58,6 +58,7 @@ export class AuthenticationService {
         switch (authorities.authority) {
           case String(UserRoles.ADMIN):
             push(AdminRoutesEnum.ADMIN);
+            setShowBackdrop(false);
             break;
         }
       } catch (e) {
@@ -65,9 +66,6 @@ export class AuthenticationService {
       }
     } else {
       push(PublicRoutesEnum.HOME);
-      if (setShowModule) {
-        setShowModule(true);
-      }
     }
   }
 

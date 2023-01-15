@@ -7,6 +7,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useAppReducer } from "../../redux/appReducer/useAppReducer";
 import { NavContainer, BgDiv, HeaderLi, Separator } from "./HeaderMainStyles";
 import BurguerButton from "./burgerButton/BurgerButton";
+import Login from "../../views/public/login/Login";
 const HeaderMain = () => {
   const history = useHistory();
   const navigate = useLocation();
@@ -45,7 +46,12 @@ const HeaderMain = () => {
     return true;
   };
 
-  const { setShowBackdrop } = useAppReducer();
+  const { setShowBackdrop, setBackdropComponent } = useAppReducer();
+
+  const handleSetBackDrop = () => {
+    setBackdropComponent(<Login />);
+    setShowBackdrop(true);
+  };
 
   return (
     <>
@@ -68,7 +74,7 @@ const HeaderMain = () => {
             </HeaderLi>
 
             <HeaderLi
-              onClick={() => setShowBackdrop(true)}
+              onClick={handleSetBackDrop}
               currentView={handleValidateCurrentView(PublicRoutesEnum.LOGIN)}
             >
               Login

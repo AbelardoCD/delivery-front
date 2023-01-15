@@ -1,19 +1,17 @@
 import CustomInput from "../../../components/miscelaneous/customImput/CustomInput";
-import {
-  ButtonContainer,
-  ImgAbsolute,
-  InformationSection,
-  LoginContainer,
-} from "./LoginStyles";
-import pizza from "./../../../assets/pizza.png";
-import burger from "./../../../assets/burger.png";
+import { ButtonContainer, LoginContainer } from "./LoginStyles";
+
 import { LoginService } from "../../../services/LoginService";
 import { LoginInterface } from "../../../models/LoginInterface";
 import { useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { useAppReducer } from "../../../redux/appReducer/useAppReducer";
+import { AuthenticationService } from "../../../services/AuthenticationService";
 
 const Login = () => {
   const history = useHistory();
+
+  const { setShowBackdrop } = useAppReducer();
 
   const [login, setLogin] = useState<LoginInterface>({
     email: "",
@@ -23,18 +21,19 @@ const Login = () => {
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    LoginService.login(login, history.push);
+    LoginService.login(login, history.push, setShowBackdrop);
   };
+  const handleVerifyIfIsLogin = () => {
+    AuthenticationService.verifyUserRole(history.push, setShowBackdrop);
+  };
+  handleVerifyIfIsLogin();
   return (
     <LoginContainer>
-      <InformationSection>
-        {/* <ImgAbsolute src={pizza} left={"-130px"} top={"-20px"} />
-        <ImgAbsolute src={burger} left={"380px"} top={"350px"} /> */}
-        <form onSubmit={(e) => handleLogin(e)}>
-          <label>Bienvenido De Nuevo!</label>
+      <div className="container-box">
+        <span className="title">Login</span>
+        <form className="login" onSubmit={(e) => handleLogin(e)}>
           <CustomInput
-            placeholder="Ingrese su Email"
-            type="text"
+            placeholder="Ingrese su email"
             onChange={(e) => setLogin({ ...login, email: e.target.value })}
           />
           <CustomInput
@@ -44,7 +43,7 @@ const Login = () => {
           />
           <ButtonContainer type="submit">Login</ButtonContainer>
         </form>
-      </InformationSection>
+      </div>
     </LoginContainer>
   );
 };

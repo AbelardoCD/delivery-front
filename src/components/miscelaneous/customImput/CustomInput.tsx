@@ -1,6 +1,8 @@
 import * as React from "react";
 import InputUnstyled from "@mui/base/InputUnstyled";
 import { styled } from "@mui/system";
+import styledC from "styled-components";
+
 const blue = {
   100: "#DAECFF",
   200: "#b6daff",
@@ -59,12 +61,22 @@ const CustomInput = React.forwardRef(function CustomInput(
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
   return (
-    <InputUnstyled
-      components={{ Input: StyledInputElement }}
-      {...props}
-      ref={ref}
-    />
+    <div>
+      <TitleInput>{props.placeholder}</TitleInput>
+      <InputUnstyled
+        components={{ Input: StyledInputElement }}
+        {...props}
+        ref={ref}
+        placeholder=""
+      />
+    </div>
   );
 });
 
 export default CustomInput;
+
+const TitleInput = styledC.span`
+  font-size:13px;
+  color:#a0a0a0;
+
+`;

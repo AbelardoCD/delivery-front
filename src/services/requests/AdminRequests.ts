@@ -8,7 +8,9 @@ class AdminRequest {
     return axios.get(`${process.env.REACT_APP_API_ENDPOINT}admin/list/food`);
   }
   async getRestaurants() {
-    return axios.get(`${process.env.REACT_APP_API_ENDPOINT}admin/restaurants`);
+    return axios.get(
+      `${process.env.REACT_APP_API_ENDPOINT}admin/list/restaurant`
+    );
   }
 
   async setRestaurante(data: FormData) {

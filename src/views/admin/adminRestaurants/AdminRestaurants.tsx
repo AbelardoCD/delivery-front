@@ -14,6 +14,8 @@ const AdminRestaurants = () => {
   useEffect(() => {
     AdminService.getRestaurants(setRestaurantsList);
   }, []);
+  console.log(restaurantsList);
+
   return (
     <AdminRestaurantsContainer>
       <CustomModal openModal={openModal} setOpenModal={setOpenModal}>

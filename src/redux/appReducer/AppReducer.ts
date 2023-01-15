@@ -5,6 +5,7 @@ import { AppReducerTypes } from "./AppReducerTypes";
 const initialState: AppReducerStates = {
   openModal: false,
   showBackdrop: false,
+  backdropComponent: null,
 };
 
 export const AppReducer = (
@@ -21,6 +22,11 @@ export const AppReducer = (
       return {
         ...states,
         showBackdrop: action.payload,
+      };
+    case AppReducerTypes.SET_BACKDROP_COMPONENT:
+      return {
+        ...states,
+        backdropComponent: action.payload,
       };
     default:
       return states;

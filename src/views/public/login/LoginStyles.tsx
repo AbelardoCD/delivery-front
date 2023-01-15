@@ -5,36 +5,24 @@ export const LoginContainer = styled.section.attrs({
 })`
   display: flex;
   justify-content: center;
-  margin-top: 59px;
-  min-height: calc(100vh - 59px);
-`;
-
-export const InformationSection = styled.section.attrs({
-  className: "animated fadeIn fast",
-})`
-  background: #f15f37;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-  width: 500px;
-  height: 500px;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  flex-direction: column;
-  box-shadow: 2px 2px 16px #fde4e0;
-  label {
-    font-weight: bold;
-    font-size: 20px;
-    color: #585757;
-    text-align: center;
+  .container-box {
+    padding: 40px;
+    width: 500px;
+    background: #fcfcfc;
+    border-radius: 5px;
+  }
+  .title {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
-  form {
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
+  .container-box .login {
+    margin-top: 10px;
+    display: grid;
+    gap: 30px;
+    grid-template-rows: repeat(3, auto);
   }
 `;
 
@@ -48,6 +36,9 @@ export const ButtonContainer = styled.button`
   border: none;
   box-shadow: 2px 2px 16px #4d966d9d;
   cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 `;
 
 export const ImgAbsolute = styled.img<{

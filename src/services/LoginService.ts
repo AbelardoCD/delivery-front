@@ -2,13 +2,15 @@ import axios from "axios";
 import { LoginInterface } from "../models/LoginInterface";
 import { AuthenticationService } from "./AuthenticationService";
 export class LoginService {
-  public static login(login: LoginInterface, push: (state: string) => void) {
+  public static login(
+    login: LoginInterface,
+    push: (state: string) => void,
+    setShowBackdrop: (e: boolean) => void
+  ) {
     this.loginRequest(login)
       .then((resp) => {
-        console.log(resp);
-
         AuthenticationService.loginValidation(resp.data.jwtToken, push);
-        AuthenticationService.verifyUserRole(push);
+        AuthenticationService.verifyUserRole(push, setShowBackdrop);
       })
       .catch((err) => {
         console.log(err);

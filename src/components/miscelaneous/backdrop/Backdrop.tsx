@@ -1,13 +1,26 @@
 import styled from "styled-components";
 import CloseIcon from "@mui/icons-material/Close";
 import { useAppReducer } from "../../../redux/appReducer/useAppReducer";
+import { useEffect } from "react";
 const Backdrop = () => {
-  const { showBackdrop, setShowBackdrop } = useAppReducer();
+  const {
+    showBackdrop,
+    setShowBackdrop,
+    backdropComponent,
+    setBackdropComponent,
+  } = useAppReducer();
+
+  useEffect(() => {
+    return () => {
+      setBackdropComponent(null);
+    };
+  }, []);
   return (
     <>
       {showBackdrop && (
         <BackdropContainer>
           <CloseIcon onClick={() => setShowBackdrop(false)} />
+          <section>{backdropComponent}</section>
         </BackdropContainer>
       )}
     </>
@@ -28,7 +41,9 @@ const BackdropContainer = styled.div.attrs({
   bottom: 0;
   background: var(--layer-one);
   z-index: 11;
-
+  section {
+    margin-top: 50px;
+  }
   .MuiSvgIcon-root {
     color: #000;
     position: absolute;

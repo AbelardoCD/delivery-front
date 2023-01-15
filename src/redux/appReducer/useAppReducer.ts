@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ReduxPackages } from "../ReduxPackages";
 import { AppReducerTypes } from "./AppReducerTypes";
@@ -5,7 +6,7 @@ import { AppReducerTypes } from "./AppReducerTypes";
 export const useAppReducer = () => {
   const dispatch = useDispatch();
   const redux = useSelector(({ app }: ReduxPackages) => app);
-  const { openModal, showBackdrop } = redux;
+  const { openModal, showBackdrop, backdropComponent } = redux;
 
   const setOpenModal = (payload: boolean) => {
     dispatch({
@@ -20,5 +21,19 @@ export const useAppReducer = () => {
       payload,
     });
   };
-  return { setOpenModal, openModal, setShowBackdrop, showBackdrop };
+
+  const setBackdropComponent = (payload: ReactNode | ReactNode[]) => {
+    dispatch({
+      type: AppReducerTypes.SET_BACKDROP_COMPONENT,
+      payload,
+    });
+  };
+  return {
+    setOpenModal,
+    openModal,
+    setShowBackdrop,
+    showBackdrop,
+    backdropComponent,
+    setBackdropComponent,
+  };
 };
